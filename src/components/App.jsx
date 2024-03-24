@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Input from './Input'
+import Input from './Input';
+import List from './List';
 import './App.css';
 
 function App() {
@@ -13,15 +14,23 @@ function App() {
 		}
 	}
 
+	const complete = (text) => {
+		const uncompletedTodos = todos.filter((todo) => todo !== text)
+		setTodos(uncompletedTodos)
+	}
+	
+	const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            addTodo()
+        }
+    }
+
 	return (
 		<div className="app">
-			<img src="./public/techoverlogo-230116-082629.png" alt="Techover" />
-			<Input todo={todo} setTodo={setTodo} addTodo={addTodo}></Input>
-			<ul>
-				{todos.map((todo, i) => (
-					<li key={i}> {todo} </li>
-				))}
-			</ul>
+			<h1 className='app-title'>ToDo List >:3</h1>
+			<Input todo={todo} setTodo={setTodo} addTodo={addTodo} addTodoEnterKey={handleKeyPress} />
+			<List todos={todos} complete={complete} />
+			
 		</div>
 	);
 }

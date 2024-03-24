@@ -1,7 +1,28 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
+.app {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 10px solid plum;
+  border-radius: 10px;
+}
+
+.app-title {
+  margin: 20px;
+  color: palevioletred  ;
+}
+
+@media screen and (max-width: 800px) {
+  .app {
+    width: 350px;
+  }
+}

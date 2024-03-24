@@ -1,17 +1,20 @@
 import './Input.css';
 
-const Input = ({todo,setTodo,addTodo}) => {
+const Input = ({todo,setTodo,addTodo,addTodoEnterKey}) => {
+
+
 	return (
 		<div className="Input">
 			<input
 				type="text"
-				className="Input"
+				className="Input-field"
 				name="todo"
-				placeholder="Create a Todo"
+				placeholder="Create a Todo!"
 				onChange={(event) => setTodo(event.target.value)}
                 value={todo}
+                onKeyPress={addTodoEnterKey}
 			/>
-            <button className="add-button" onClick={() => addTodo()}>ADD</button>
+            <button className="add-button" onClick={() => addTodo()} >ADD</button>
 		</div>
 	);
 };
